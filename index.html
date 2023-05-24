@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Max 155 characters -->
+    <meta name="description" content="JSMINE SOPHIA is a self-taught singer, songwriter, producer and visual artist based in London.">
+
+    <title>JSMINE SOPHIA</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/raf2nzb.css">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous">
+    </script>
+    <script> 
+      $(function(){
+        $("#header").load("header.html"); 
+        $("#footer").load("footer.html"); 
+      });
+    </script> 
+</head>
+
+<body>
+    <div id="header"></div>
+    <div id="video-container">
+      <video autoplay muted loop id="main-video" poster="/assets/hp-poster.jpg">
+        <source src="assets/homepage-video.mp4" type="video/mp4"> Your browser does not support the video tag.
+      </video>
+      <h1 id="js-name">JSMINE SOPHIA</h1>
+    </div>
+    <div class="js-youtube-container">
+      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Ha7G6_4jXLw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <a href="https://youtu.be/QxvF1owtWrc" class="external button" target="_blank">JSMINE SOPHIA - Critical (Official Music Video)</a>
+    </div>
+    <div id="footer"></div>
+</body>
+
+
+</html>
