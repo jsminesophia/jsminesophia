@@ -541,7 +541,7 @@ body {
         line-height: 8rem;
       }
 
-      .js-youtube {
+      .js-youtube-container iframe {
         --youtube-width: 32rem;
       }
 
@@ -600,7 +600,7 @@ body {
         top: 33%;
     }
 
-    .js-youtube {
+    .js-youtube-container iframe {
         --youtube-width: 29rem;
     }
 
