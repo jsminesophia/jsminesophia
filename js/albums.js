@@ -21,35 +21,46 @@ const card2 = document.getElementById("card-2");
 const cardFront2 = document.getElementById("card-front-2");
 const cardBack2 = document.getElementById("card-back-2");
 
+function lazyFlip1() {
+  cardBack1.classList.toggle("off");
+}
+function lazyFlip2() {
+  cardBack2.classList.toggle("off");
+}
+
 cardFront1.addEventListener("click", function () {
   card1.classList.toggle("flipped");
-  function lazyFlip() {
-    cardBack1.classList.toggle("off");;
-  }
-  setTimeout(lazyFlip, 200);
-})
+  setTimeout(lazyFlip1, 200);
+});
+
+cardFront1.addEventListener("touchend", function () {
+  card1.classList.toggle("flipped");
+  setTimeout(lazyFlip1, 200);
+});
 
 cardFront2.addEventListener("click", function () {
   card2.classList.toggle("flipped");
-  function lazyFlip() {
-    cardBack2.classList.toggle("off");;
-  }
-  setTimeout(lazyFlip, 200);
-})
+  setTimeout(lazyFlip2, 200);
+});
+
+cardFront2.addEventListener("touchend", function () {
+  card2.classList.toggle("flipped");
+  setTimeout(lazyFlip2, 200);
+});
 
 function indexInParent(node) {
   var children = node.parentNode.childNodes;
   var num = 0;
-  for (var i=0; i<children.length; i++) {
-       if (children[i]==node) return num;
-       if (children[i].nodeType==1) num++;
+  for (var i = 0; i < children.length; i++) {
+    if (children[i] == node) return num;
+    if (children[i].nodeType == 1) num++;
   }
   return -1;
-}  
+}
+
 album1.addEventListener("click", (e) => {
   backButton1.classList.add("off");
   backButton2.classList.remove("off");
-
 
   if (e.target && e.target.matches("li")) {
     album1Title.classList.add("off");
@@ -62,21 +73,46 @@ album1.addEventListener("click", (e) => {
     let lyrics = lyricsContainer1.children[songIndex];
     lyrics.classList.add("active");
 
-      backButton2.addEventListener("click", () => {
-        songTitle1.remove();
-        album1Title.classList.remove("off");
-        album1.classList.remove("off");
-        lyrics.classList.remove("active"); 
-        backButton1.classList.remove("off");
-        backButton2.classList.add("off");   
-      });
+    backButton2.addEventListener("click", () => {
+      songTitle1.remove();
+      album1Title.classList.remove("off");
+      album1.classList.remove("off");
+      lyrics.classList.remove("active");
+      backButton1.classList.remove("off");
+      backButton2.classList.add("off");
+    });
+  }
+});
+
+album1.addEventListener("touchend", (e) => {
+  backButton1.classList.add("off");
+  backButton2.classList.remove("off");
+
+  if (e.target && e.target.matches("li")) {
+    album1Title.classList.add("off");
+    album1.classList.add("off");
+
+    songTitle1.textContent = e.target.innerHTML;
+    album1TitleContainer.appendChild(songTitle1);
+
+    const songIndex = indexInParent(e.target);
+    let lyrics = lyricsContainer1.children[songIndex];
+    lyrics.classList.add("active");
+
+    backButton2.addEventListener("click", () => {
+      songTitle1.remove();
+      album1Title.classList.remove("off");
+      album1.classList.remove("off");
+      lyrics.classList.remove("active");
+      backButton1.classList.remove("off");
+      backButton2.classList.add("off");
+    });
   }
 });
 
 album2.addEventListener("click", (e) => {
   backButton3.classList.add("off");
   backButton4.classList.remove("off");
-
 
   if (e.target && e.target.matches("li")) {
     album2Title.classList.add("off");
@@ -89,30 +125,59 @@ album2.addEventListener("click", (e) => {
     let lyrics = lyricsContainer2.children[songIndex];
     lyrics.classList.add("active");
 
-      backButton4.addEventListener("click", () => {
-        songTitle2.remove();
-        album2Title.classList.remove("off");
-        album2.classList.remove("off");
-        lyrics.classList.remove("active"); 
-        backButton3.classList.remove("off");
-        backButton4.classList.add("off");   
-      });
+    backButton4.addEventListener("click", () => {
+      songTitle2.remove();
+      album2Title.classList.remove("off");
+      album2.classList.remove("off");
+      lyrics.classList.remove("active");
+      backButton3.classList.remove("off");
+      backButton4.classList.add("off");
+    });
+  }
+});
+
+album2.addEventListener("touchend", (e) => {
+  backButton3.classList.add("off");
+  backButton4.classList.remove("off");
+
+  if (e.target && e.target.matches("li")) {
+    album2Title.classList.add("off");
+    album2.classList.add("off");
+
+    songTitle2.textContent = e.target.innerHTML;
+    album2TitleContainer.appendChild(songTitle2);
+
+    const songIndex = indexInParent(e.target);
+    let lyrics = lyricsContainer2.children[songIndex];
+    lyrics.classList.add("active");
+
+    backButton4.addEventListener("click", () => {
+      songTitle2.remove();
+      album2Title.classList.remove("off");
+      album2.classList.remove("off");
+      lyrics.classList.remove("active");
+      backButton3.classList.remove("off");
+      backButton4.classList.add("off");
+    });
   }
 });
 
 backButton1.addEventListener("click", function () {
   card1.classList.toggle("flipped");
-  function lazyFlip() {
-    cardBack1.classList.toggle("off");;
-  }
-  setTimeout(lazyFlip, 200);
-})
+  setTimeout(lazyFlip1, 200);
+});
+
+backButton1.addEventListener("touchend", function () {
+  card1.classList.toggle("flipped");
+  setTimeout(lazyFlip1, 200);
+});
 
 backButton3.addEventListener("click", function () {
   card2.classList.toggle("flipped");
-  function lazyFlip() {
-    cardBack2.classList.toggle("off");;
-  }
-  setTimeout(lazyFlip, 200);
+  setTimeout(lazyFlip2, 200);
+});
 
-})
+backButton3.addEventListener("touchend", function () {
+  card2.classList.toggle("flipped");
+  setTimeout(lazyFlip2, 200);
+});
